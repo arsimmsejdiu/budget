@@ -1,64 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <link rel="icon" href="https://image.flaticon.com/icons/png/512/1211/1211547.png" />
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600" rel="stylesheet" type="text/css">
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css">
-        <link type="text/css" rel="stylesheet" href="style.css">
-        <title>Budget App Calculator</title>
-    </head>
-    <body>
-        
-        <div class="top">
-            <div class="budget max-w-2xl mx-auto px-8 sm:px-16 flex flex-col">
-                <h1 class="budget__title">
-                    Budget disponible en <span class="budget__title--month">%Month%</span>:
-                </h1>
-                
-                <div class="budget__value">+ 2,345.64</div>
-                
-                <div class="budget__income clearfix">
-                    <div class="budget__income--text">Revenus</div>
-                    <div class="right">
-                        <div class="budget__income--value">+ 4,300.00</div>
-                        <div class="budget__income--percentage">&nbsp;</div>
-                    </div>
-                </div>
-                
-                <div class="budget__expenses clearfix">
-                    <div class="budget__expenses--text">Dépenses</div>
-                    <div class="right clearfix">
-                        <div class="budget__expenses--value">- 1,954.36</div>
-                        <div class="budget__expenses--percentage">45%</div>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      href="https://image.flaticon.com/icons/png/512/1211/1211547.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css"
+    />
+    <link
+      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
+    />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <title>Budget App Calculator</title>
+  </head>
+  <body>
+    <div class="overlay">
+      <h1>Welcome to</h1>
+      <span>Calculator App</span>
+    </div>
+    <div class="top">
+      <div class="budget max-w-2xl mx-auto px-8 sm:px-16 flex flex-col">
+        <h1 class="budget__title">
+          Budget disponible en
+          <span class="budget__title--month">%Month%</span>:
+        </h1>
+
+        <div class="budget__value">+ 2,345.64</div>
+
+        <div class="budget__income clearfix">
+          <div class="budget__income--text">Revenus</div>
+          <div class="right">
+            <div class="budget__income--value">+ 4,300.00</div>
+            <div class="budget__income--percentage">&nbsp;</div>
+          </div>
         </div>
-        
-        
-        
-        <div class="bottom">
-            <div class="add">
-                <div class="add__container">
-                    <select class="add__type">
-                        <option value="inc" selected>+</option>
-                        <option value="exp">-</option>
-                    </select>
-                    <input type="text" class="add__description" placeholder="Ajout description">
-                    <input type="number" class="add__value" placeholder="Valeur">
-                    <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
-                </div>
-            </div>
-            
-            <div class="container clearfix">
-                <div class="income">
-                    <h2 class="icome__title">Revenus</h2>
-                    
-                    <div class="income__list">
-                       
-                        <!--
+
+        <div class="budget__expenses clearfix">
+          <div class="budget__expenses--text">Dépenses</div>
+          <div class="right clearfix">
+            <div class="budget__expenses--value">- 1,954.36</div>
+            <div class="budget__expenses--percentage">45%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="add">
+        <div class="add__container">
+          <select class="add__type">
+            <option value="inc" selected>+</option>
+            <option value="exp">-</option>
+          </select>
+          <input
+            type="text"
+            class="add__description"
+            placeholder="Ajout description"
+          />
+          <input type="number" class="add__value" placeholder="Valeur" />
+          <button class="add__btn">
+            <i class="ion-ios-checkmark-outline"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="container clearfix">
+        <div class="income">
+          <h2 class="icome__title">Revenus</h2>
+
+          <div class="income__list">
+            <!--
                         <div class="item clearfix" id="income-0">
                             <div class="item__description">Salary</div>
                             <div class="right clearfix">
@@ -81,18 +107,14 @@
                             </div>
                         </div>
                         -->
-                        
-                    </div>
-                </div>
-                
-                
-                
-                <div class="expenses">
-                    <h2 class="expenses__title">Dépenses</h2>
-                    
-                    <div class="expenses__list">
-                       
-                        <!--
+          </div>
+        </div>
+
+        <div class="expenses">
+          <h2 class="expenses__title">Dépenses</h2>
+
+          <div class="expenses__list">
+            <!--
                         <div class="item clearfix" id="expense-0">
                             <div class="item__description">Apartment rent</div>
                             <div class="right clearfix">
@@ -115,14 +137,467 @@
                             </div>
                         </div>
                         -->
-                        
-                    </div>
-                </div>
-            </div>
-            
-            
+          </div>
         </div>
-        
-        <script src="app.js"></script>
-    </body>
+      </div>
+    </div>
+    <!-- component -->
+
+    <footer class="bg-gray-800 pt-10 sm:mt-10 pt-10">
+      <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-left">
+        <!-- Col-1 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+          <!-- Col Title -->
+          <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+            Getting Started
+          </div>
+
+          <!-- Links -->
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Installation
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Release Notes
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Upgrade Guide
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Using with Preprocessors
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Optimizing for Production
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Browser Support
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            IntelliSense
+          </a>
+        </div>
+
+        <!-- Col-2 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+          <!-- Col Title -->
+          <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+            Core Concepts
+          </div>
+
+          <!-- Links -->
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Utility-First
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Responsive Design
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Hover, Focus, & Other States
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Dark Mode
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Adding Base Styles
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Extracting Components
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Adding New Utilities
+          </a>
+        </div>
+
+        <!-- Col-3 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+          <!-- Col Title -->
+          <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+            Customization
+          </div>
+
+          <!-- Links -->
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Configuration
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Theme Configuration
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Breakpoints
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Customizing Colors
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Customizing Spacing
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Configuring Variants
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Plugins
+          </a>
+        </div>
+
+        <!-- Col-3 -->
+        <div class="p-5 w-1/2 sm:w-4/12 md:w-3/12">
+          <!-- Col Title -->
+          <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+            Community
+          </div>
+
+          <!-- Links -->
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            GitHub
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Discord
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            Twitter
+          </a>
+          <a
+            href="#"
+            class="
+              my-3
+              block
+              text-gray-300
+              hover:text-gray-100
+              text-sm
+              font-medium
+              duration-700
+            "
+          >
+            YouTube
+          </a>
+        </div>
+      </div>
+
+      <!-- Copyright Bar -->
+      <div class="pt-2">
+        <div
+          class="
+            flex
+            pb-5
+            px-3
+            m-auto
+            pt-5
+            border-t border-gray-500
+            text-gray-400 text-sm
+            flex-col
+            md:flex-row
+            max-w-6xl
+          "
+        >
+          <div class="mt-2">
+            © Copyright 2021. All Rights Reserved Arsim Sejdiu.
+          </div>
+
+          <!-- Required Unicons (if you want) -->
+          <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
+            <a href="#" class="w-6 mx-1">
+              <i class="uil uil-facebook-f"></i>
+            </a>
+            <a href="#" class="w-6 mx-1">
+              <i class="uil uil-twitter-alt"></i>
+            </a>
+            <a href="#" class="w-6 mx-1">
+              <i class="uil uil-youtube"></i>
+            </a>
+            <a href="#" class="w-6 mx-1">
+              <i class="uil uil-linkedin"></i>
+            </a>
+            <a href="#" class="w-6 mx-1">
+              <i class="uil uil-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+      TweenMax.to(".overlay h1", 2, {
+        opacity: 0,
+        y: -60,
+        ease: Expo.easeInOut,
+      });
+
+      TweenMax.to(".overlay span", 2, {
+        delay: 0.5,
+        opacity: 0,
+        y: -60,
+        ease: Expo.easeInOut,
+      });
+
+      TweenMax.to(".overlay", 2, {
+        delay: 1,
+        top: "-100%",
+        ease: Expo.easeInOut,
+      });
+    </script>
+  </body>
 </html>
