@@ -34,7 +34,7 @@
   </head>
   <body>
     <div class="overlay">
-      <img src="https://image.flaticon.com/icons/png/512/1211/1211547.png" />
+      <img class="w-60 h-60 p-10" src="https://image.flaticon.com/icons/png/512/1211/1211547.png" />
       <h1>Welcome to Budget</h1>
       <span>Calculator App</span>
     </div>
@@ -62,7 +62,7 @@
         <div class="budget__value rounded-lg">+ 2,345.64</div>
 
         <div class="budget__income rounded-lg clearfix">
-          <div class="budget__income--text">Revenus</div>
+          <div class="budget__income--text">Revenues</div>
           <div class="right">
             <div class="budget__income--value">+ 4,300.00</div>
             <div class="budget__income--percentage">&nbsp; brut</div>
@@ -109,7 +109,7 @@
 
       <div class="container clearfix">
         <div class="income">
-          <h2 class="icome__title p-2">Revenus</h2>
+          <h2 class="icome__title p-2">Revenues</h2>
           <div class="income__list"></div>
         </div>
 
@@ -235,14 +235,14 @@
       });
 
       TweenMax.to(".overlay span", 2, {
-        delay: 0.5,
+        delay: 0.7,
         opacity: 0,
         y: -60,
         ease: Expo.easeInOut,
       });
 
       TweenMax.to(".overlay", 2, {
-        delay: 1,
+        delay: 2,
         top: "-100%",
         ease: Expo.easeInOut,
       });
