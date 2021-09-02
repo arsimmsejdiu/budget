@@ -15,7 +15,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css"
     />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <!-- <link
       href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
       rel="stylesheet"
@@ -35,7 +38,9 @@
       <h1>Welcome to Budget</h1>
       <span>Calculator App</span>
     </div>
-    <div class="top">
+
+    <!-- Display the Budget -->
+    <div id="top" class="top">
       <ul class="circles">
         <li></li>
         <li></li>
@@ -60,7 +65,7 @@
           <div class="budget__income--text">Revenus</div>
           <div class="right">
             <div class="budget__income--value">+ 4,300.00</div>
-            <div class="budget__income--percentage">&nbsp;</div>
+            <div class="budget__income--percentage">&nbsp; brut</div>
           </div>
         </div>
 
@@ -71,11 +76,20 @@
             <div class="budget__expenses--percentage">45%</div>
           </div>
         </div>
+
+        <div class="budget__tax rounded-lg clearfix">
+          <div class="budget__tax--text">Taxe</div>
+          <div class="right clearfix">
+            <div class="budget__tax--value">- 2,000,00</div>
+            <div class="budget__tax--percentage">20%</div>
+          </div>
+        </div>
       </div>
     </div>
-
+    
+    <!-- Income And Expenses -->
     <div class="bottom">
-      <div class="add">
+      <div id="add" class="add">
         <div class="add__container flex justify-center items-center sm:py-5">
           <select class="add__type">
             <option value="inc" selected>+</option>
@@ -105,8 +119,8 @@
         </div>
       </div>
     </div>
-    <!-- component -->
 
+    <!-- Info Section -->
     <div class="min-w-screen flex items-center justify-center pt-10">
       <div
         class="
@@ -124,10 +138,10 @@
           <div class="-mx-3 md:flex items-center">
             <div class="px-3 md:w-2/3 mb-10 md:mb-0">
               <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">
-                Stay <br class="hidden md:block" />updated.
+                Calculate<br class="hidden md:block" />Your Budget
               </h1>
               <h3 class="text-gray-600 mb-7 leading-tight">
-                Subscribe now and receive the latest updates.
+                Income, Expenses and Taxes of your monthly income.
               </h3>
               <div>
                 <span
@@ -142,64 +156,34 @@
               </div>
             </div>
             <div class="px-3 md:w-1/3">
-              <form>
-                <div class="flex mb-3">
-                  <div
-                    class="
-                      w-10
-                      z-10
-                      pl-1
-                      text-center
-                      pointer-events-none
-                      flex
-                      items-center
-                      justify-center
-                    "
-                  >
-                    <i class="mdi mdi-email-outline text-gray-400 text-lg"></i>
-                  </div>
-                  <input
-                    type="email"
-                    class="
-                      w-full
-                      -ml-10
-                      pl-10
-                      pr-3
-                      py-2
-                      rounded-lg
-                      border-2 border-gray-200
-                      outline-none
-                      focus:border-indigo-500
-                    "
-                    placeholder="email@example.com"
-                  />
-                </div>
                 <div>
-                  <button
-                    class="
-                      block
-                      w-full
-                      bg-indigo-500
-                      hover:bg-indigo-700
-                      focus:bg-indigo-700
-                      transition-colors
-                      text-white
-                      rounded-lg
-                      px-3
-                      py-2
-                      font-semibold
-                    "
-                  >
-                    Subscribe now.
-                  </button>
+                  <a href="#top">
+                    <button
+                      class="
+                        block
+                        w-full
+                        bg-indigo-500
+                        hover:bg-indigo-700
+                        focus:bg-indigo-700
+                        transition-colors
+                        text-white
+                        rounded-lg
+                        px-3
+                        py-2
+                        font-semibold
+                      "
+                    >
+                      Calculate Above.
+                    </button>
+                  </a>
                 </div>
-              </form>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 pt-10 sm:mt-10 pt-10">
       <!-- Copyright Bar -->
       <div class="pt-2">

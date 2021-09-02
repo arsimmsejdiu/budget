@@ -77,6 +77,10 @@ body::-webkit-scrollbar-track {
   font-weight: 500;
 }
 
+.budget__title--month{
+  color: #28b9b5;
+}
+
 .budget__value {
   font-weight: 500;
   font-size: 46px;
@@ -90,6 +94,7 @@ body::-webkit-scrollbar-track {
 }
 
 .budget__income,
+.budget__tax,
 .budget__expenses {
   padding: 12px;
   text-transform: uppercase;
@@ -100,11 +105,18 @@ body::-webkit-scrollbar-track {
   background-color: #28b9b5;
 }
 
+.budget__tax {
+  margin-bottom: 10px;
+  background-color: #bbb019;
+}
+
 .budget__expenses {
+  margin-bottom: 10px;
   background-color: #ff5049;
 }
 
 .budget__income--text,
+.budget__tax--text,
 .budget__expenses--text {
   float: left;
   font-size: 13px;
@@ -114,21 +126,35 @@ body::-webkit-scrollbar-track {
 }
 
 .budget__income--value,
+.budget__tax--value,
 .budget__expenses--value {
   letter-spacing: 1px;
   float: left;
 }
 
 .budget__income--percentage,
+.budget__tax--percentage,
 .budget__expenses--percentage {
   float: left;
-  width: 34px;
+  width: 35px;
   font-size: 11px;
   padding: 3px 0;
   margin-left: 10px;
 }
 
 .budget__expenses--percentage {
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.budget__income--percentage{
+  background-color: rgba(255, 255, 255, 0.2);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.budget__tax--percentage {
   background-color: rgba(255, 255, 255, 0.2);
   text-align: center;
   border-radius: 3px;
