@@ -314,7 +314,7 @@ var UIController = (function () {
     },
 
     displayMonth: function () {
-      var now, months, month, year;
+      var now, months, month, year, day;
 
       now = new Date();
       //var christmas = new Date(2016, 11, 25);
