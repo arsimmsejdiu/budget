@@ -1,494 +1,464 @@
-/**********************************************
-*** GENERAL
-**********************************************/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@font-face {
+    font-family: 'Gilroy';
+    src: url('font/Gilroy-Regular.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gilroy Bold';
+    src: url('font/Gilroy-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
 }
 
-.clearfix::after {
-  content: "";
-  display: table;
-  clear: both;
+body{
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(./images/wall.png);
+    background-size: cover;
+    font-family: 'Gilroy';
 }
 
-body {
-  color: #555;
-  font-family: Open Sans;
-  font-size: 16px;
-  position: relative;
-  height: 100vh;
-  font-weight: 400;
+*{
+    font-family: 'Gilroy';
+    list-style: none;
+    text-decoration: none;
+    -webkit-user-select: none;      
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-html {
-  scroll-behavior: smooth;
+/* REMOVE SPINNERS FROM NUMBER INPUT */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
-body::-webkit-scrollbar {
-  width: 0.5rem;
-}
-body::-webkit-scrollbar-thumb {
-  background-color: #bec1c9;
-  border-radius: 50px;
-}
-body::-webkit-scrollbar-track {
-  background-color: transparent;
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
-.right {
-  float: right;
-}
-.red {
-  color: #ff5049 !important;
-}
-.red-focus:focus {
-  border: 2px solid #ff5049 !important;
-}
-
-/**********************************************
-*** TOP PART
-**********************************************/
-
-.top {
-  height: 60vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url(back.png);
-  background-size: cover;
-  background-position: center;
-  position: relative;
+.budget-container{
+    position: absolute;
+    width: 460px;
+    height: 800px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #34006a;
 }
 
-.budget {
-  position: absolute;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #fff;
+.budget-container .app-title{
+    margin-top: 45px;
+    margin-left: 20px;
 }
 
-.budget__title {
-  font-size: 38px;
-  text-align: center;
-  margin-bottom: 10px;
-  font-weight: 500;
+.budget-container .app-title a{
+    color: #FFF;
+}
+.budget-container .app-title a b{
+    font-family: 'Gilroy Bold';
 }
 
-.budget__title--month{
-  color: #28b9b5;
+/* .budget-header{
+
+} */
+
+.budget-header .balance{
+    margin-top: 45px;
+    margin-left: 20px;
 }
 
-.budget__value {
-  font-weight: 500;
-  font-size: 46px;
-  text-align: center;
-  margin-bottom: 25px;
-  letter-spacing: 2px;
-  z-index: 1000;
-  color: #4f4f4f;
-  background: white;
-  opacity: 0.6;
+.budget-header .balance .title{
+    color: #FFF;
+    font-size: 1em;
+    font-family: 'Gilroy Bold';
 }
 
-.budget__income,
-.budget__tax,
-.budget__expenses {
-  padding: 12px;
-  text-transform: uppercase;
+.budget-header .balance .value{
+    color: #FFF;
+    font-size: 2em;
+    margin-top: 10px;
+    font-family: 'Gilroy Bold';
 }
 
-.budget__income {
-  margin-bottom: 10px;
-  background-color: #28b9b5;
+.budget-header .account{
+    display: block;
+    width: 310px;
+    margin: 35px auto 0;
+    line-height: 1.7em;
+    text-align: center;
+    
 }
 
-.budget__tax {
-  margin-bottom: 10px;
-  background-color: #bbb019;
+.budget-header .account .income, .chart, .outcome{
+    height: 50px;
+    display: inline-block;
+    width: 100px;
+    vertical-align: middle;
 }
 
-.budget__expenses {
-  margin-bottom: 10px;
-  background-color: #ff5049;
+.budget-header .account .income .title{
+    color: #FFF;
+    opacity: 0.5;
+}
+.budget-header .account .income .income-total{
+    color: #FFF;
+    font-family: 'Gilroy Bold';
 }
 
-.budget__income--text,
-.budget__tax--text,
-.budget__expenses--text {
-  float: left;
-  font-size: 13px;
-  color: #fff;
-  font-weight: 600;
-  margin-top: 2px;
+.budget-header .account .outcome .title{
+    color: #FFF;
+    opacity: 0.5;
+}
+.budget-header .account .outcome .outcome-total{
+    color: #f0624d;
+    font-family: 'Gilroy Bold';
 }
 
-.budget__income--value,
-.budget__tax--value,
-.budget__expenses--value {
-  letter-spacing: 1px;
-  float: left;
+/*/////////////   DASHBOARD    /////////////*/
+.budget-dashboard{
+    display: block;
+    width: 460px;
+    height: 470px;
+    background-color: #FFF;
+    margin-top: 35px;
+    border-radius: 30px 30px 0 0;
 }
 
-.budget__income--percentage,
-.budget__tax--percentage,
-.budget__expenses--percentage {
-  float: left;
-  width: 35px;
-  font-size: 11px;
-  padding: 3px 0;
-  margin-left: 10px;
+.budget-dashboard .dash-title{
+    display: inline-block;
+    color: #1a0034;
+    font-size: 1.7em;
+    margin-left: 20px;
+    margin-top: 30px;
+    font-family: 'Gilroy Bold';
 }
 
-.budget__expenses--percentage {
-  background-color: rgba(255, 255, 255, 0.2);
-  text-align: center;
-  border-radius: 3px;
+.toggle{
+    display: block;
+    margin-top: 30px;
+    margin-left: 20px;
 }
 
-.budget__income--percentage{
-  background-color: rgba(255, 255, 255, 0.2);
-  text-align: center;
-  border-radius: 3px;
+.toggle .tab1, .tab2, .tab3{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #1a0034;
+    font-family: 'Gilroy Bold';
+    opacity: 0.4;
 }
 
-.budget__tax--percentage {
-  background-color: rgba(255, 255, 255, 0.2);
-  text-align: center;
-  border-radius: 3px;
+.toggle .tab2, .tab3{
+    margin-left: 10px;
 }
 
-/**********************************************
-*** BOTTOM PART
-**********************************************/
-
-/***** FORM *****/
-.add {
-  padding: 14px;
-  border-bottom: 1px solid #e7e7e7;
-  background-color: #f7f7f7;
+.active{
+    opacity : 1 !important;
 }
 
-.add__container {
-  margin: 0 auto;
-  text-align: center;
+.hide{
+    display: none;
 }
 
-.add__type {
-  width: 55px;
-  border: 1px solid #e7e7e7;
-  height: 44px;
-  font-size: 18px;
-  color: inherit;
-  background-color: #fff;
-  margin-right: 10px;
-  font-weight: 300;
-  transition: border 0.3s;
+.budget-dashboard input{
+    /* MAKE INPUT SELECTABLE */
+    -webkit-user-select: auto;      
+    -moz-user-select: auto;
+    -ms-user-select: auto;
+    user-select: auto;
 }
 
-.add__description,
-.add__value {
-  border: 1px solid #e7e7e7;
-  background-color: #fff;
-  color: inherit;
-  font-family: inherit;
-  font-size: 14px;
-  padding: 12px 15px;
-  margin-right: 10px;
-  border-radius: 5px;
-  transition: border 0.3s;
+/* ////////// ALL ///////////// */
+.budget-dashboard #all{
+    width: 460px;
+    height: 339px;
+    position: relative;
+}
+.budget-dashboard #all ul{
+    width: 460px;
+    height: 285px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top:20px;
+    overflow-x: auto;
 }
 
-.add__description {
-  width: 400px;
-}
-.add__value {
-  width: 100px;
+.budget-dashboard #all ul.list li{
+    position: relative;
+    font-size: 1em;
 }
 
-.add__btn {
-  font-size: 30px;
-  background: none;
-  border: none;
-  color: #28b9b5;
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1.1;
-  margin-left: 10px;
+.budget-dashboard #all ul.list li *{
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
 }
 
-.add__btn:active {
-  transform: translateY(2px);
+.budget-dashboard #all ul.list li .entry{
+    width:350px;
+    height: auto;
+    padding-left: 20px;
+    margin-bottom: 10px;;
+    word-wrap: break-word;
+    font-family: 'Gilroy Bold';
 }
 
-.add__type:focus,
-.add__description:focus,
-.add__value:focus {
-  outline: none;
-  border: 2px solid #28b9b5;
+.budget-dashboard #all ul.list li #edit{
+    visibility: hidden;
 }
 
-.add__btn:focus {
-  outline: none;
+.budget-dashboard #all ul.list li #delete{
+    position: absolute;
+    width:20px;
+    height: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-image: url('icon/trash.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
 }
 
-/***** LISTS *****/
-.container {
-  width: 1000px;
-  margin: 60px auto;
+/* .budget-dashboard #all ul.list li.income{
+
+} */
+.budget-dashboard #all ul.list li.expense{
+    color: #f0624d;
 }
 
-.income {
-  float: left;
-  width: 475px;
-  margin-right: 50px;
+/* //////// EXPENSE ////////// */
+.budget-dashboard #expense{
+    width: 460px;
+    height: 339px;
+    position: relative;
 }
 
-.expenses {
-  float: left;
-  width: 475px;
+.budget-dashboard #expense .input{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 460px;
+    bottom: 0;
+    border-top: 1px solid #ccc;
 }
 
-h2 {
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 15px;
+.budget-dashboard #expense .input *{
+    display: inline-block;
+    vertical-align: middle;
 }
 
-.icome__title {
-  color: #28b9b5;
-  background: #a1dddb;
-  font-weight: 400;
-}
-.expenses__title {
-  color: #ff5049;
-  background: #e9b2b0;
-  font-weight: 400;
-}
-
-.item {
-  padding: 13px;
-  border-bottom: 1px solid #e7e7e7;
+.budget-dashboard #expense .input input#expense-title-input{
+    height: 40px;
+    width : 150px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-family: 'Gilroy';
+    margin: 25px;
+    margin-left: 10px;
+    border-radius: 10px 0 0 10px;
+    border: none;
 }
 
-.item:first-child {
-  border-top: 1px solid #e7e7e7;
-}
-.item:nth-child(even) {
-  background-color: #f7f7f7;
-}
-
-.item__description {
-  float: left;
-}
-
-.item__value {
-  float: left;
-  transition: transform 0.3s;
+.budget-dashboard #expense .input input#expense-amount-input{
+    height: 40px;
+    width : 110px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-family: 'Gilroy';
+    margin: 25px;
+    margin-left: -10px;
+    border-radius: 0 10px 10px 0;
+    border: none;
 }
 
-.item__percentage {
-  float: left;
-  margin-left: 20px;
-  transition: transform 0.3s;
-  font-size: 11px;
-  background-color: #ffdad9;
-  padding: 3px;
-  border-radius: 3px;
-  width: 32px;
-  text-align: center;
+.budget-dashboard #expense .input .add-expense img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
 
-.income .item__value,
-.income .item__delete--btn {
-  color: #28b9b5;
+.budget-dashboard #expense ul{
+    width: 460px;
+    height: 285px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top:20px;
+    overflow-x: auto;
 }
 
-.expenses .item__value,
-.expenses .item__percentage,
-.expenses .item__delete--btn {
-  color: #ff5049;
+.budget-dashboard #expense ul.list li{
+    position: relative;
+    font-size: 1em;
 }
 
-.item__delete {
-  float: left;
+.budget-dashboard #expense ul.list li *{
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
 }
 
-.item__delete--btn {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  display: none;
+.budget-dashboard #expense ul.list li .entry{
+    width:250px;
+    height: auto;
+    padding-left: 20px;
+    margin-bottom: 10px;;
+    word-wrap: break-word;
+    font-family: 'Gilroy Bold';
+    color: #f0624d;
 }
 
-.item__delete--btn:focus {
-  outline: none;
-}
-.item__delete--btn:active {
-  transform: translateY(2px);
-}
-
-.item:hover .item__delete--btn {
-  display: block;
-}
-.item:hover .item__value {
-  transform: translateX(-20px);
-}
-.item:hover .item__percentage {
-  transform: translateX(-20px);
+.budget-dashboard #expense ul.list li #edit{
+    position: absolute;
+    width:20px;
+    height: 20px;
+    right: 50px;
+    cursor: pointer;
+    background-image: url("icon/edit.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
 }
 
-.unpaid {
-  background-color: #ffdad9 !important;
-  cursor: pointer;
-  color: #ff5049;
+.budget-dashboard #expense ul.list li #delete{
+    position: absolute;
+    width:20px;
+    height: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-image: url('icon/trash.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
 }
 
-.unpaid .item__percentage {
-  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+/* /////// INCOME //////// */
+.budget-dashboard #income{
+    width: 460px;
+    height: 339px;
+    position: relative;
 }
-.unpaid:hover .item__description {
-  font-weight: 900;
+
+.budget-dashboard #income .input{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 460px;
+    bottom: 0;
+    border-top: 1px solid #ccc;
+}
+
+.budget-dashboard #income .input *{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.budget-dashboard #income .input input#income-title-input{
+    height: 40px;
+    width : 150px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-family: 'Gilroy';
+    margin: 25px;
+    margin-left: 10px;
+    border-radius: 10px 0 0 10px;
+    border: none;
+}
+
+.budget-dashboard #income .input input#income-amount-input{
+    height: 40px;
+    width : 110px;
+    padding: 10px;
+    font-size: 1.2em;
+    font-family: 'Gilroy';
+    margin: 25px;
+    margin-left: -10px;
+    border-radius: 0 10px 10px 0;
+    border: none;
+}
+
+.budget-dashboard #income .input .add-income img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.budget-dashboard #income ul{
+    width: 460px;
+    height: 285px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top:20px;
+    overflow-x: auto;
+}
+
+.budget-dashboard #income ul.list li{
+    position: relative;
+    font-size: 1em;
+}
+
+.budget-dashboard #income ul.list li *{
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.budget-dashboard #income ul.list li .entry{
+    width:250px;
+    height: auto;
+    padding-left: 20px;
+    margin-bottom: 10px;;
+    word-wrap: break-word;
+    font-family: 'Gilroy Bold';
+}
+
+.budget-dashboard #income ul.list li #edit{
+    position: absolute;
+    width:20px;
+    height: 20px;
+    right: 50px;
+    cursor: pointer;
+    background-image: url("icon/edit.png");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.budget-dashboard #income ul.list li #delete{
+    position: absolute;
+    width:20px;
+    height: 20px;
+    right: 20px;
+    cursor: pointer;
+    background-image: url('icon/trash.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
 }
 
 .overlay {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  background: #28b9b5;
-  top: 0%;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.overlay h1 {
-  font-size: 70px;
-  letter-spacing: 10px;
-  color: white;
-}
-
-.overlay span {
-  font-size: 30px;
-  letter-spacing: 3px;
-  color: white;
-}
-
-.circles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.circles li {
-  position: absolute;
-  display: block;
-  list-style: none;
-  width: 20px;
-  height: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  animation: animate 25s linear infinite;
-  bottom: -150px;
-}
-
-.circles li:nth-child(1) {
-  left: 25%;
-  width: 80px;
-  height: 80px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(2) {
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 2s;
-  animation-duration: 12s;
-}
-
-.circles li:nth-child(3) {
-  left: 70%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 4s;
-}
-
-.circles li:nth-child(4) {
-  left: 40%;
-  width: 60px;
-  height: 60px;
-  animation-delay: 0s;
-  animation-duration: 18s;
-}
-
-.circles li:nth-child(5) {
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-delay: 0s;
-}
-
-.circles li:nth-child(6) {
-  left: 75%;
-  width: 110px;
-  height: 110px;
-  animation-delay: 3s;
-}
-
-.circles li:nth-child(7) {
-  left: 35%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 7s;
-}
-
-.circles li:nth-child(8) {
-  left: 50%;
-  width: 25px;
-  height: 25px;
-  animation-delay: 15s;
-  animation-duration: 45s;
-}
-
-.circles li:nth-child(9) {
-  left: 20%;
-  width: 15px;
-  height: 15px;
-  animation-delay: 2s;
-  animation-duration: 35s;
-}
-
-.circles li:nth-child(10) {
-  left: 85%;
-  width: 150px;
-  height: 150px;
-  animation-delay: 0s;
-  animation-duration: 11s;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: 1;
-    border-radius: 0;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #28b9b5;
+    top: 0%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-
-  100% {
-    transform: translateY(-1000px) rotate(720deg);
-    opacity: 0;
-    border-radius: 50%;
+  
+  .overlay h1 {
+    font-size: 70px;
+    letter-spacing: 10px;
+    color: white;
   }
-}
+  
+  .overlay span {
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: white;
+  }

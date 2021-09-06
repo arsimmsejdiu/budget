@@ -1,232 +1,102 @@
+<!-- www.youtube.com/CodeExplained -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker App</title>
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="icon"
       href="https://image.flaticon.com/icons/png/512/1211/1211547.png"
     />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,600"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@3.0.6/css/line.css"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <!-- <link
-      href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
-      rel="stylesheet"
-      type="text/css"
-    /> -->
-    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.7/tailwind.min.css"
     />
-    <link type="text/css" rel="stylesheet" href="style.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-    <title>Budget App Calculator</title>
   </head>
   <body>
     <div class="overlay">
-      <img class="w-60 h-60 p-10" src="https://image.flaticon.com/icons/png/512/1211/1211547.png" />
+      <img
+        class="w-60 h-60 p-10"
+        src="https://image.flaticon.com/icons/png/512/1211/1211547.png"
+      />
       <h1>Welcome to Budget</h1>
       <span>Calculator App</span>
     </div>
-
-    <!-- Display the Budget -->
-    <div id="top" class="top">
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
-      <div class="budget max-w-4xl mx-auto px-8 sm:px-16 p-10 flex flex-col">
-        <h1 class="budget__title">
-          Budget disponible en
-          <span class="budget__title--month">%Month%</span>
-        </h1>
-
-        <div class="budget__value rounded-lg">+ 2,345.64</div>
-
-        <div class="budget__income rounded-lg clearfix">
-          <div class="budget__income--text">Revenues</div>
-          <div class="right">
-            <div class="budget__income--value">+ 4,300.00</div>
-            <div class="budget__income--percentage">&nbsp; brut</div>
-          </div>
+    <div class="budget-container">
+      <div class="app-title">
+        <a href="">Budget<b>Calculator</b></a>
+      </div>
+      <div class="budget-header">
+        <div class="balance">
+          <div class="title">Balance</div>
+          <div class="value"><small>$</small>0</div>
         </div>
-
-        <div class="budget__expenses rounded-lg clearfix">
-          <div class="budget__expenses--text">Dépenses</div>
-          <div class="right clearfix">
-            <div class="budget__expenses--value">- 1,954.36</div>
-            <div class="budget__expenses--percentage">45%</div>
+        <div class="account">
+          <div class="income">
+            <div class="title">Income</div>
+            <div class="income-total"><small>$</small>0</div>
           </div>
-        </div>
-
-        <div class="budget__tax rounded-lg clearfix">
-          <div class="budget__tax--text">Taxe</div>
-          <div class="right clearfix">
-            <div class="budget__tax--value">- 2,000,00</div>
-            <div class="budget__tax--percentage">20%</div>
+          <div class="chart"></div>
+          <div class="outcome">
+            <div class="title">Income</div>
+            <div class="outcome-total"><small>$</small>0</div>
           </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Income And Expenses -->
-    <div class="bottom">
-      <div id="add" class="add">
-        <div class="add__container flex justify-center items-center sm:py-5">
-          <select class="add__type">
-            <option value="inc" selected>+</option>
-            <option value="exp">-</option>
-          </select>
-          <input
-            type="text"
-            class="add__description"
-            placeholder="Ajout description"
-          />
-          <input type="number" class="add__value" placeholder="Valeur" />
-          <button class="add__btn">
-            <i class="far fa-check-circle"></i>
-          </button>
+      <div class="budget-dashboard">
+        <div class="dash-title">Dashboard</div>
+        <div class="toggle">
+          <div class="tab1">Expenses</div>
+          <div class="tab2">Income</div>
+          <div class="tab3 active">All</div>
         </div>
-      </div>
-
-      <div class="container clearfix">
-        <div class="income">
-          <h2 class="icome__title p-2">Revenues</h2>
-          <div class="income__list"></div>
+        <div class="hide" id="income">
+          <ul class="list"></ul>
+          <div class="input">
+            <input
+              type="text"
+              id="income-title-input"
+              name="title"
+              placeholder="Title"
+            />
+            <input
+              type="number"
+              id="income-amount-input"
+              name="amount"
+              placeholder="$0"
+            />
+            <div class="add-income"><img src="icon/plus.png" alt="" /></div>
+          </div>
         </div>
-
-        <div class="expenses">
-          <h2 class="expenses__title p-2">Dépenses</h2>
-          <div class="expenses__list"></div>
+        <div class="hide" id="expense">
+          <ul class="list"></ul>
+          <div class="input">
+            <input
+              type="text"
+              id="expense-title-input"
+              name="title"
+              placeholder="Title"
+            />
+            <input
+              type="number"
+              id="expense-amount-input"
+              name="amount"
+              placeholder="$0"
+            />
+            <div class="add-expense"><img src="icon/plus.png" alt="" /></div>
+          </div>
+        </div>
+        <div id="all">
+          <ul class="list"></ul>
         </div>
       </div>
     </div>
 
-    <!-- Info Section -->
-    <div class="min-w-screen flex items-center justify-center pt-10">
-      <div
-        class="
-          w-full
-          bg-white
-          border-t border-b border-gray-200
-          px-5
-          py-16
-          md:py-24
-          text-gray-800
-          font-light
-        "
-      >
-        <div class="w-full max-w-6xl mx-auto pb-5">
-          <div class="-mx-3 md:flex items-center">
-            <div class="px-3 md:w-2/3 mb-10 md:mb-0">
-              <h1 class="text-6xl md:text-8xl font-bold mb-5 leading-tight">
-                Calculate<br class="hidden md:block" />Your Budget
-              </h1>
-              <h3 class="text-gray-600 mb-7 leading-tight">
-                Income, Expenses and Taxes of your monthly income.
-              </h3>
-              <div>
-                <span
-                  class="inline-block w-40 h-1 rounded-full bg-indigo-500"
-                ></span>
-                <span
-                  class="inline-block w-3 h-1 rounded-full bg-indigo-500 ml-1"
-                ></span>
-                <span
-                  class="inline-block w-1 h-1 rounded-full bg-indigo-500 ml-1"
-                ></span>
-              </div>
-            </div>
-            <div class="px-3 md:w-1/3">
-                <div>
-                  <a href="#top">
-                    <button
-                      class="
-                        block
-                        w-full
-                        bg-indigo-500
-                        hover:bg-indigo-700
-                        focus:bg-indigo-700
-                        transition-colors
-                        text-white
-                        rounded-lg
-                        px-3
-                        py-2
-                        font-semibold
-                      "
-                    >
-                      Calculate Above.
-                    </button>
-                  </a>
-                </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 pt-10 sm:mt-10 pt-10">
-      <!-- Copyright Bar -->
-      <div class="pt-2">
-        <div
-          class="
-            flex
-            pb-5
-            px-3
-            m-auto
-            pt-5border-gray-500
-            text-gray-400 text-sm
-            flex-col
-            md:flex-row
-            max-w-6xl
-          "
-        >
-          <div class="mt-2">
-            © Copyright 2021. All Rights Reserved Arsim Sejdiu.
-          </div>
-
-          <!-- Required Unicons (if you want) -->
-          <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
-            <a href="#" class="w-6 mx-1">
-              <i class="uil uil-facebook-f"></i>
-            </a>
-            <a href="#" class="w-6 mx-1">
-              <i class="uil uil-twitter-alt"></i>
-            </a>
-            <a href="#" class="w-6 mx-1">
-              <i class="uil uil-youtube"></i>
-            </a>
-            <a href="#" class="w-6 mx-1">
-              <i class="uil uil-linkedin"></i>
-            </a>
-            <a href="#" class="w-6 mx-1">
-              <i class="uil uil-instagram"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-
-    <script src="app.js"></script>
+    <script src="chart.js"></script>
+    <script src="budget.js"></script>
     <script>
       TweenMax.to(".overlay h1", 2, {
         opacity: 0,
